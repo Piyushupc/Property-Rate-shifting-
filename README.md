@@ -47,14 +47,6 @@ Scikit-learn (Machine Learning)
 
 ⚙️ How to Run
 
-Clone this repository:
-
-git clone https://github.com/yourusername/real-estate-pricing-analysis.git
-
-
-Navigate into the folder:
-
-cd real-estate-pricing-analysis
 
 
 Install dependencies:
