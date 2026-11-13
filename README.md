@@ -1,73 +1,67 @@
-🏠 Real Estate Price Analysis & Visualization (Pre vs Post Pandemic)
-📋 Description
+# Real Estate Price Analysis and Visualization
 
-This project analyzes and visualizes real estate pricing trends in India, focusing on the shift in property rates before and after the pandemic.
-It uses machine learning and data visualization to help users understand how the property market evolved across different cities.
+A desktop application for exploring Indian real-estate price patterns, comparing pre- and post-pandemic periods, and experimenting with regression-based analysis.
 
-The project provides an easy-to-use Graphical User Interface (GUI) where users can:
+## Features
 
-Load their own dataset (.csv format)
+- Load a CSV dataset.
+- Filter and explore records by city.
+- Visualize data with line, bar, histogram, scatter, pie, and heatmap charts.
+- Run linear regression for a continuous price target.
+- Create a high/low price category for classification experiments.
+- Display visualizations through a Tkinter interface.
 
-Explore different graph types (line, bar, histogram, scatter, pie, heatmap)
+## Technology stack
 
-Filter results by city
+- Python
+- Pandas and NumPy
+- scikit-learn
+- Matplotlib and Seaborn
+- Tkinter
 
-Run linear regression and logistic regression models to predict property prices
+## Project structure
 
-Compare pricing patterns before and after the pandemic
+```text
+GUI.py
+Graph.py
+Main.py
+real_estate_pricing_pattern_india.csv
+README.md
+```
 
-🧩 Project Structure
-📁 RealEstateProject/
-│
-├── Main.py                    # Handles data processing & regression models
-├── Graph.py                   # Contains graph plotting functions
-├── GUI.py                     # GUI application built with Tkinter & Matplotlib
-├── real_estate_pricing_pattern_india.csv   # Dataset used for analysis
-└── README.md                  # Project description and usage guide
+## Run locally
 
-🚀 Features
+Install the dependencies:
 
-✅ Load and visualize real estate data interactively
-✅ View multiple graph types (Bar, Line, Histogram, Scatter, Pie, Heatmap)
-✅ Filter properties city-wise
-✅ Run regression models directly from GUI
-✅ Simple, human-friendly design (no over-engineering)
-
-🧠 Tech Stack
-
-Python 3.8+
-
-Tkinter (GUI)
-
-Matplotlib & Seaborn (Visualization)
-
-Pandas, NumPy (Data handling)
-
-Scikit-learn (Machine Learning)
-
-⚙️ How to Run
-
-
-
-Install dependencies:
-
-pip install pandas matplotlib seaborn scikit-learn
-
+```bash
+python -m pip install pandas numpy scikit-learn matplotlib seaborn
+```
 
 Run the application:
 
+```bash
 python GUI.py
+```
 
-📊 Future Improvements
+Keep the CSV dataset in the expected project location, or update the data-loading path if you move it.
 
-Add comparison graphs (2019 vs 2021) to visualize pre- and post-pandemic price shifts
+## Modeling notes
 
-Include export options for analysis reports
+- Linear regression is used for predicting a continuous property-price-per-square-foot target.
+- Logistic regression is used for a separate high/low price classification task derived from the median price.
+- The dataset's provenance, collection period, coverage, and licensing should be checked before drawing market conclusions.
+- A model trained on historical observations does not automatically provide reliable future property valuations.
 
-Integrate live real estate data API
+## Improvements to prioritize
 
-👨‍💻 Author
+1. Split training and test data before fitting imputers, encoders, or scalers.
+2. Use a scikit-learn Pipeline and ColumnTransformer to prevent preprocessing leakage and keep inference consistent.
+3. Use a time-based holdout if the goal is forecasting future prices.
+4. Compare against simple baselines and report MAE, RMSE, and R² for regression.
+5. Report precision, recall, F1, and ROC-AUC for classification.
+6. Document the dataset source and add reproducible environment/dependency files.
+7. Separate data preparation, model training, and GUI code into maintainable modules.
 
-Piyush Rai
-MCA Student | Python Developer | AI & ML Enthusiast
-📧 Feel free to connect or contribute!
+## Author
+
+Piyush Rai — [GitHub](https://github.com/Piyushupc)
