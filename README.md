@@ -1,66 +1,42 @@
 # Real Estate Price Analysis and Visualization
 
-A desktop application for exploring Indian real-estate price patterns, comparing pre- and post-pandemic periods, and experimenting with regression-based analysis.
+A desktop application for exploring real-estate price data and comparing pre-pandemic and post-pandemic patterns. Users can load a CSV dataset, filter records by city, visualize trends, and experiment with regression models.
 
-## Features
+## Current features
 
-- Load a CSV dataset.
-- Filter and explore records by city.
-- Visualize data with line, bar, histogram, scatter, pie, and heatmap charts.
-- Run linear regression for a continuous price target.
-- Create a high/low price category for classification experiments.
-- Display visualizations through a Tkinter interface.
+- Load a user-provided CSV dataset.
+- Filter and explore property records by city.
+- Generate line, bar, histogram, scatter, pie, and heatmap visualizations (depending on available columns).
+- Train Linear Regression for continuous price estimation.
+- Train Logistic Regression for a high-price/low-price classification task.
+- Explore pre-pandemic versus post-pandemic price patterns.
 
-## Technology stack
+## Technology
 
-- Python
-- Pandas and NumPy
-- scikit-learn
-- Matplotlib and Seaborn
-- Tkinter
-
-## Project structure
-
-```text
-GUI.py
-Graph.py
-Main.py
-real_estate_pricing_pattern_india.csv
-README.md
-```
+Python, Tkinter, Pandas, NumPy, Matplotlib, Seaborn, and scikit-learn.
 
 ## Run locally
 
-Install the dependencies:
+1. Clone the repository and create a virtual environment.
+2. Install the dependencies required by the application.
+3. Run `Main.py`.
+4. Load a CSV file with the columns expected by the application.
 
-```bash
-python -m pip install pandas numpy scikit-learn matplotlib seaborn
-```
-
-Run the application:
-
-```bash
-python GUI.py
-```
-
-Keep the CSV dataset in the expected project location, or update the data-loading path if you move it.
+Check the dataset schema and units before interpreting model results.
 
 ## Modeling notes
 
-- Linear regression is used for predicting a continuous property-price-per-square-foot target.
-- Logistic regression is used for a separate high/low price classification task derived from the median price.
-- The dataset's provenance, collection period, coverage, and licensing should be checked before drawing market conclusions.
-- A model trained on historical observations does not automatically provide reliable future property valuations.
+Linear Regression estimates a continuous property-price value. Logistic Regression is used for classification (for example, high-price versus low-price); it is not a second continuous price-prediction model.
 
-## Improvements to prioritize
+The current preprocessing flow is an educational baseline. Fitting an imputer or other preprocessing step before the train/test split can leak test-set information into training. A robust next iteration should split first and use a scikit-learn Pipeline/ColumnTransformer so preprocessing is fitted only on training data.
 
-1. Split training and test data before fitting imputers, encoders, or scalers.
-2. Use a scikit-learn Pipeline and ColumnTransformer to prevent preprocessing leakage and keep inference consistent.
-3. Use a time-based holdout if the goal is forecasting future prices.
-4. Compare against simple baselines and report MAE, RMSE, and R² for regression.
-5. Report precision, recall, F1, and ROC-AUC for classification.
-6. Document the dataset source and add reproducible environment/dependency files.
-7. Separate data preparation, model training, and GUI code into maintainable modules.
+## Recommended improvements
+
+- Document dataset schema, source, currency, and time period.
+- Use a reproducible train/test split and cross-validation.
+- Report MAE, RMSE, and R² for regression; precision, recall, F1, and ROC-AUC where appropriate for classification.
+- Compare against a simple baseline and inspect residuals.
+- Add input validation, tests, and sample data licensed for redistribution.
 
 ## Author
 
