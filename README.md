@@ -1,73 +1,43 @@
-🏠 Real Estate Price Analysis & Visualization (Pre vs Post Pandemic)
-📋 Description
+# Real Estate Price Analysis and Visualization
 
-This project analyzes and visualizes real estate pricing trends in India, focusing on the shift in property rates before and after the pandemic.
-It uses machine learning and data visualization to help users understand how the property market evolved across different cities.
+A desktop application for exploring real-estate price data and comparing pre-pandemic and post-pandemic patterns. Users can load a CSV dataset, filter records by city, visualize trends, and experiment with regression models.
 
-The project provides an easy-to-use Graphical User Interface (GUI) where users can:
+## Current features
 
-Load their own dataset (.csv format)
+- Load a user-provided CSV dataset.
+- Filter and explore property records by city.
+- Generate line, bar, histogram, scatter, pie, and heatmap visualizations (depending on available columns).
+- Train Linear Regression for continuous price estimation.
+- Train Logistic Regression for a high-price/low-price classification task.
+- Explore pre-pandemic versus post-pandemic price patterns.
 
-Explore different graph types (line, bar, histogram, scatter, pie, heatmap)
+## Technology
 
-Filter results by city
+Python, Tkinter, Pandas, NumPy, Matplotlib, Seaborn, and scikit-learn.
 
-Run linear regression and logistic regression models to predict property prices
+## Run locally
 
-Compare pricing patterns before and after the pandemic
+1. Clone the repository and create a virtual environment.
+2. Install the dependencies required by the application.
+3. Run `Main.py`.
+4. Load a CSV file with the columns expected by the application.
 
-🧩 Project Structure
-📁 RealEstateProject/
-│
-├── Main.py                    # Handles data processing & regression models
-├── Graph.py                   # Contains graph plotting functions
-├── GUI.py                     # GUI application built with Tkinter & Matplotlib
-├── real_estate_pricing_pattern_india.csv   # Dataset used for analysis
-└── README.md                  # Project description and usage guide
+Check the dataset schema and units before interpreting model results.
 
-🚀 Features
+## Modeling notes
 
-✅ Load and visualize real estate data interactively
-✅ View multiple graph types (Bar, Line, Histogram, Scatter, Pie, Heatmap)
-✅ Filter properties city-wise
-✅ Run regression models directly from GUI
-✅ Simple, human-friendly design (no over-engineering)
+Linear Regression estimates a continuous property-price value. Logistic Regression is used for classification (for example, high-price versus low-price); it is not a second continuous price-prediction model.
 
-🧠 Tech Stack
+The current preprocessing flow is an educational baseline. Fitting an imputer or other preprocessing step before the train/test split can leak test-set information into training. A robust next iteration should split first and use a scikit-learn Pipeline/ColumnTransformer so preprocessing is fitted only on training data.
 
-Python 3.8+
+## Recommended improvements
 
-Tkinter (GUI)
+- Document dataset schema, source, currency, and time period.
+- Use a reproducible train/test split and cross-validation.
+- Report MAE, RMSE, and R² for regression; precision, recall, F1, and ROC-AUC where appropriate for classification.
+- Compare against a simple baseline and inspect residuals.
+- Add input validation, tests, and sample data licensed for redistribution.
 
-Matplotlib & Seaborn (Visualization)
+## Author
 
-Pandas, NumPy (Data handling)
-
-Scikit-learn (Machine Learning)
-
-⚙️ How to Run
-
-
-
-Install dependencies:
-
-pip install pandas matplotlib seaborn scikit-learn
-
-
-Run the application:
-
-python GUI.py
-
-📊 Future Improvements
-
-Add comparison graphs (2019 vs 2021) to visualize pre- and post-pandemic price shifts
-
-Include export options for analysis reports
-
-Integrate live real estate data API
-
-👨‍💻 Author
-
-Piyush Rai
-MCA Student | Python Developer | AI & ML Enthusiast
-📧 Feel free to connect or contribute!
+Piyush Rai — [GitHub](https://github.com/Piyushupc)
